@@ -2,6 +2,8 @@ import React from 'react'
 import { connect } from 'react-redux'
 import ListComponent from './ListComponent'
 import InputComponent from './InputComponent'
+import './App.scss'
+import reactIcon from './reactIcon.png'
 
 class App extends React.Component {
   constructor(props) {
@@ -11,7 +13,7 @@ class App extends React.Component {
   render() {
     return(
       <div id='app-container'>
-        <h1>Immo-App</h1>
+        <h1 id='banner'><img src={reactIcon} />Immo-App</h1>
         <InputComponent />
         <ListComponent />
       </div>

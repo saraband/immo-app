@@ -8,7 +8,8 @@ module.exports = {
     alias: {
       Components: __dirname + '/src/browser/components',
       Actions: __dirname + '/src/browser/actions',
-      Reducers: __dirname + '/src/browser/reducers'
+      Reducers: __dirname + '/src/browser/reducers',
+      Utils: __dirname + '/src/utils'
     }
   },
   module: {

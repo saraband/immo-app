@@ -1,16 +1,15 @@
 import express from 'express'
 import bodyParser from 'body-parser'
 import { MongoClient } from 'mongodb'
-
-function getRandomInt(min, max) {
-  return Math.floor(Math.random() * (max - min + 1) + min)
-}
+import { getRandomInt } from './../utils/index'
 
 MongoClient.connect('mongodb://localhost:27017', function(err, client) {
+  if(err) 
+    console.error(err)
+
   const db = client.db('immo-app')
   const app = express()
 
-  // HTTP
   app.use(express.static(__dirname + './../../public'))
   app.use(bodyParser.json())
   app.get('*', (req, res) => {
@@ -20,8 +19,6 @@ MongoClient.connect('mongodb://localhost:27017', function(err, client) {
       <html>
         <head>
           <meta charset='utf-8' />
-          <link rel='stylesheet' href='style.css' />
-          <link rel='stylesheet' href='bootstrap.min.css' />
         </head>
         <body>
           <div id='root'></div>
@@ -64,7 +61,15 @@ MongoClient.connect('mongodb://localhost:27017', function(err, client) {
 })
 
 /*
-  const test = new Array(100)
+  const houses = [
+    {type: 'house', title: 'Nice house by the lake'},
+    {type: 'house', title: 'Mansion in the suburbs'},
+    {type: 'house', title: 'Breath taking house in Manhattan'},
+    {type: 'appartment', title: 'Sunny appartment'},
+    {type: 'appartment', title: 'Big appartment located near the centre'},
+    {type: 'appartment', title: 'Great duplex in the heart of the city'},
+  ]
+  const test = new Array(25)
   let id = 0
   const names = [
     'Lesia Mazzola',
@@ -90,20 +95,22 @@ MongoClient.connect('mongodb://localhost:27017', function(err, client) {
   ]
 
   for(let i = 0; i < test.length; ++i) {
+    const rd = getRandomInt(0, 5)
     test[i] = {
       id: i,
       date: getRandomInt(0, 1527184736),
-      imgSrc: 'https://picsum.photos/200/300/?random',
-      name: '',
+      imgSrc: 'https://picsum.photos/350/200/?random',
+      title: houses[rd].title,
+      type: houses[rd].type,
       price: getRandomInt(500, 5000),
       area: getRandomInt(50, 400),
-      name: names[getRandomInt(0, names.length - 1)],
+      owner: names[getRandomInt(0, names.length - 1)],
       description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce vitae lectus ac nibh elementum pulvinar.'
     }
   }
 
   db.collection('goods').insertMany(test, (err, result) => {
-    console.log('yup')
+    console.log('Done')
     client.close();
   })
   */

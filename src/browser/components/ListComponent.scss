@@ -1,0 +1,50 @@
+@import 'utils';
+
+$width_item: 350px;
+$height_item: 400px;
+
+#list-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  flex-wrap: wrap;
+  width: 100vw;
+
+  .list-item {
+    border: 2px solid red;
+    width: $width_item;
+    height: $height_item;
+    margin: 15px;
+    display: block;
+
+    .list-item-image {
+      width: $width_item;
+      height: 200px;
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+
+      img {
+        position: absolute;
+      }
+
+      img:first-child {
+        animation: 1s rotation infinite linear;
+      }
+    }
+
+    .list-item-description {
+      padding: 10px;
+
+      h3 {
+        margin-bottom: 10px;
+      }
+
+      .list-item-date {
+        float: right;
+      }
+    }
+  }
+}

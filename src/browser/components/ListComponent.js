@@ -1,13 +1,17 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { requestList } from 'Actions/index'
+import { timeSince } from 'Utils/index'
 import Image from './Image'
+import './ListComponent.scss'
 
 const ListItem = ({
   id,
   imgSrc,
-  name,
+  owner,
+  title,
   price,
+  date,
   area,
   description
 }) => (
@@ -16,9 +20,8 @@ const ListItem = ({
       <Image src={imgSrc + '&id=' + id} alt={name} />
     </div>
     <div class='list-item-description'>
-      <h3>{name}</h3>
-      <h5>{price} €</h5>
-      <h5>{area} m²</h5>
+      <h3>{title}</h3>
+      <h5>{price} € for {area} m² <span className='list-item-date'>{timeSince(date*1000)}</span></h5>
       <p>{description}</p>
     </div>
   </div>
