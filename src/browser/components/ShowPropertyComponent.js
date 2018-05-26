@@ -42,7 +42,17 @@ class ShowPropertyComponent extends React.Component {
           <img src={close} id='close-property-img'
             onClick={hidePropertyPanel} />
           <div id='show-property-image'>
-            <Image src={imgSrc} />
+            <Carousel>
+              <div>
+                <img src={imgSrc} />
+              </div>
+              <div>
+                <img src={imgSrc} />
+              </div>
+              <div>
+                <img src={imgSrc} />
+              </div>
+            </Carousel>
           </div>
           <div id='show-property-description'>
             {title}
