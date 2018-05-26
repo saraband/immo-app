@@ -1,31 +1,9 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { requestList } from 'Actions/index'
-import { timeSince } from 'Utils/index'
 import Image from './Image'
 import './ListComponent.scss'
-
-const ListItem = ({
-  id,
-  imgSrc,
-  owner,
-  title,
-  price,
-  date,
-  area,
-  description
-}) => (
-  <div class='list-item'>
-    <div class='list-item-image'>
-      <Image src={imgSrc + '&id=' + id} alt={name} />
-    </div>
-    <div class='list-item-description'>
-      <h3>{title}</h3>
-      <h5>{price} € for {area} m² <span className='list-item-date'>{timeSince(date*1000)}</span></h5>
-      <p>{description}</p>
-    </div>
-  </div>
-)
+import ListItem from './ListItem'
 
 class ListComponent extends React.Component {
   constructor(props) {

@@ -1,4 +1,5 @@
 @import 'utils';
+@import 'colors';
 
 $width_item: 350px;
 $height_item: 400px;
@@ -8,10 +9,11 @@ $height_item: 400px;
   flex-direction: row;
   justify-content: center;
   flex-wrap: wrap;
-  width: 100vw;
+  width: 100%;
 
   .list-item {
-    border: 2px solid red;
+    border: 1px solid $light;
+    box-shadow: 0px 0px 5px $light;
     width: $width_item;
     height: $height_item;
     margin: 15px;
@@ -36,6 +38,7 @@ $height_item: 400px;
     }
 
     .list-item-description {
+      color: $dark;
       padding: 10px;
 
       h3 {
@@ -47,4 +50,10 @@ $height_item: 400px;
       }
     }
   }
+}
+
+.placeHolder {
+  background: $light;
+  background: linear-gradient(to right, $light 0px, #D1D1BD 50px, $light 200px);
+  animation: 1s shimmer linear infinite;
 }

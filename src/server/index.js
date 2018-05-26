@@ -39,7 +39,7 @@ MongoClient.connect('mongodb://localhost:27017', function(err, client) {
       return
     }
 
-    console.log(req.body)
+    console.log(`Requesting property list price=${price}, type=${type}`)
 
     let query = {
       $and: [
@@ -54,6 +54,25 @@ MongoClient.connect('mongodb://localhost:27017', function(err, client) {
     db.collection('goods').find(query).toArray((err, results) => {
       res.setHeader('Content-Type', 'application/json')
       res.end(JSON.stringify(results))
+    })
+  })
+
+  app.post('/property', (req, res) => {
+    const {
+      id
+    } = req.body
+
+    if(id == 'undefined') {
+      res.status(500).end()
+      return
+    }
+
+    console.log(`Requesting property data id=${id}`)
+
+    db.collection('goods').findOne({id: id}, (err, data) => {
+      res.setHeader('Content-Type', 'application/json')
+      console.log(data)
+      res.end(JSON.stringify(data))
     })
   })
 

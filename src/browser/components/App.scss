@@ -7,6 +7,8 @@
 }
 
 #app-container {
+  overflow-x: hidden;
+  
   #banner {
     width: 100%;
     background-color: $light;

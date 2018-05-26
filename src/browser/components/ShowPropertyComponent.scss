@@ -1,0 +1,26 @@
+#show-property-container {
+  position: fixed;
+  top: 0;
+  z-index: 42;
+  background-color: rgba(0, 0, 0, 0.6);
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+
+  #show-property-box {
+    width: 60%;
+    height: 70%;
+    background-color: white;
+
+    #close-property-img {
+      width: 35px;
+      cursor: pointer;
+      float: right;
+      margin-top: 10px;
+      margin-right: 10px;
+    }
+  }
+}

@@ -4,6 +4,7 @@ import ListComponent from './ListComponent'
 import InputComponent from './InputComponent'
 import './App.scss'
 import reactIcon from './reactIcon.png'
+import ShowPropertyComponent from './ShowPropertyComponent'
 
 class App extends React.Component {
   constructor(props) {
@@ -11,8 +12,10 @@ class App extends React.Component {
   }
 
   render() {
+    const { isPropertyPanelOpen } = this.props
     return(
       <div id='app-container'>
+        {isPropertyPanelOpen ? <ShowPropertyComponent /> : null}
         <h1 id='banner'><img src={reactIcon} />Immo-App</h1>
         <InputComponent />
         <ListComponent />
@@ -23,7 +26,7 @@ class App extends React.Component {
 
 const mapStateToProps = state => {
   return {
-    
+    isPropertyPanelOpen: state.isPropertyPanelOpen
   }
 }
 
