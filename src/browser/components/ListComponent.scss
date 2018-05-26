@@ -18,6 +18,7 @@ $height_item: 400px;
     height: $height_item;
     margin: 15px;
     display: block;
+    cursor: pointer;
 
     .list-item-image {
       width: $width_item;

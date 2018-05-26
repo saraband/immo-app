@@ -16,7 +16,7 @@ class App extends React.Component {
     return(
       <div id='app-container'>
         {isPropertyPanelOpen ? <ShowPropertyComponent /> : null}
-        <h1 id='banner'><img src={reactIcon} />Immo-App</h1>
+        <h1 id='banner' ><img src={reactIcon} />Immo-App</h1>
         <InputComponent />
         <ListComponent />
       </div>

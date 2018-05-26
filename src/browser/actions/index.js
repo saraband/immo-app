@@ -1,3 +1,5 @@
+import { fetchAsync } from 'Utils/index'
+
 export const LIST_REQUEST = 'LIST_REQUEST'
 export const LIST_REQUEST_SUCCESS = 'LIST_REQUEST_SUCCESS'
 export const LIST_REQUEST_FAILED = 'LIST_REQUEST_FAILED'
@@ -8,7 +10,7 @@ export const SHOW_PROPERTY_PANEL = 'SHOW_PROPERTY_PANEL'
 export const HIDE_PROPERTY_PANEL = 'HIDE_PROPERTY_PANEL'
 
 export const requestList = (price, type) => {
-  return (dispatch) => {
+  return async (dispatch) => {
     dispatch({type: LIST_REQUEST})
 
     fetch('/list', {

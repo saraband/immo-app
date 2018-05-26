@@ -1,5 +1,5 @@
 module.exports = {
-  entry: './src/browser/index.js'  ,
+  entry: ['babel-polyfill', './src/browser/index.js'],
   output: {
     path: __dirname + '/public',
     filename: 'bundle.js'
@@ -20,7 +20,7 @@ module.exports = {
         use: {
           loader: 'babel-loader',
           options: {
-            presets: ['es2015', 'react', 'stage-2'],
+            presets: ['es2015', 'react', 'stage-2', 'stage-0'],
             plugins: ["transform-class-properties"]
           }
         }

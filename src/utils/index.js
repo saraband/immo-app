@@ -21,3 +21,16 @@ export const timeSince = (date) => {
 
   return `${count} ${interval.label}${count !== 1 ? 's' : ''} ago`
 }
+
+export const fetchAsync = async (url, body, options) => {
+  return await (await fetch(url, {
+    headers: {
+      'Accept': 'application/json',
+      'Content-Type': 'application/json'
+    },
+    method: 'post',
+    credentials: 'same-origin',
+    ...options,
+    body
+  })).json()
+}
